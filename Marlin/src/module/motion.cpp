@@ -1297,6 +1297,27 @@ feedRate_t get_homing_bump_feedrate(const AxisEnum axis) {
           #endif
           break;
       #endif
+      #if NON_E_AXES >= 4
+      #if I_SENSORLESS
+        case I_AXIS:
+          stealth_states.i = tmc_enable_stallguard(stepperI);
+          break;
+      #endif
+      #if NON_E_AXES >= 5
+      #if J_SENSORLESS
+        case J_AXIS:
+          stealth_states.j = tmc_enable_stallguard(stepperI);
+          break;
+      #endif
+      #if NON_E_AXES >= 6
+      #if K_SENSORLESS
+        case K_AXIS:
+          stealth_states.k = tmc_enable_stallguard(stepperI);
+          break;
+      #endif
+      #endif
+      #endif
+      #endif
     }
 
     #if ENABLED(SPI_ENDSTOPS)
@@ -1304,6 +1325,15 @@ feedRate_t get_homing_bump_feedrate(const AxisEnum axis) {
         case X_AXIS: if (ENABLED(X_SPI_SENSORLESS)) endstops.tmc_spi_homing.x = true; break;
         case Y_AXIS: if (ENABLED(Y_SPI_SENSORLESS)) endstops.tmc_spi_homing.y = true; break;
         case Z_AXIS: if (ENABLED(Z_SPI_SENSORLESS)) endstops.tmc_spi_homing.z = true; break;
+        #if NON_E_AXES >= 4
+        case I_AXIS: if (ENABLED(I_SPI_SENSORLESS)) endstops.tmc_spi_homing.i = true; break;
+        #if NON_E_AXES >= 5
+        case J_AXIS: if (ENABLED(J_SPI_SENSORLESS)) endstops.tmc_spi_homing.j = true; break;
+        #if NON_E_AXES >= 6
+        case K_AXIS: if (ENABLED(K_SPI_SENSORLESS)) endstops.tmc_spi_homing.k = true; break;
+        #endif
+        #endif
+        #endif
         default: break;
       }
     #endif
@@ -1361,6 +1391,21 @@ feedRate_t get_homing_bump_feedrate(const AxisEnum axis) {
           #endif
           break;
       #endif
+      #if NON_E_AXES >= 4
+      #if I_SENSORLESS
+        case I_AXIS: tmc_disable_stallguard(stepperI, enable_stealth.i); break;
+      #endif
+      #if NON_E_AXES >= 5
+      #if J_SENSORLESS
+        case J_AXIS: tmc_disable_stallguard(stepperJ, enable_stealth.j); break;
+      #endif
+      #if NON_E_AXES >= 6
+      #if K_SENSORLESS
+        case K_AXIS: tmc_disable_stallguard(stepperK, enable_stealth.k); break;
+      #endif
+      #endif
+      #endif
+      #endif
     }
 
     #if ENABLED(SPI_ENDSTOPS)
@@ -1368,6 +1413,15 @@ feedRate_t get_homing_bump_feedrate(const AxisEnum axis) {
         case X_AXIS: if (ENABLED(X_SPI_SENSORLESS)) endstops.tmc_spi_homing.x = false; break;
         case Y_AXIS: if (ENABLED(Y_SPI_SENSORLESS)) endstops.tmc_spi_homing.y = false; break;
         case Z_AXIS: if (ENABLED(Z_SPI_SENSORLESS)) endstops.tmc_spi_homing.z = false; break;
+        #if NON_E_AXES >= 4
+        case I_AXIS: if (ENABLED(I_SPI_SENSORLESS)) endstops.tmc_spi_homing.i = false; break;
+        #if NON_E_AXES >= 5
+        case J_AXIS: if (ENABLED(J_SPI_SENSORLESS)) endstops.tmc_spi_homing.j = false; break;
+        #if NON_E_AXES >= 6
+        case K_AXIS: if (ENABLED(K_SPI_SENSORLESS)) endstops.tmc_spi_homing.k = false; break;
+        #endif
+        #endif
+        #endif
         default: break;
       }
     #endif

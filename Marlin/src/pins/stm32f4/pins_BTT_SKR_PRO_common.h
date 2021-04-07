@@ -97,7 +97,7 @@
 
 //Values are wrong
 #ifdef I_STALL_SENSITIVITY
-  #define I_STOP_PIN                  Z_DIAG_PIN
+  #define I_STOP_PIN                  I_DIAG_PIN
   #if I_HOME_DIR < 0
     #define I_MAX_PIN                       PB10   // X (idk)
   #else
@@ -110,7 +110,7 @@
 
 //Values are wrong
 #ifdef J_STALL_SENSITIVITY
-  #define J_STOP_PIN                  Z_DIAG_PIN
+  #define J_STOP_PIN                  J_DIAG_PIN
   #if J_HOME_DIR < 0
     #define J_MAX_PIN                       PE12   //  Y (idk)
   #else
@@ -132,6 +132,10 @@
 // Filament Runout Sensor
 //
 #ifndef FIL_RUNOUT_PIN
+  #define FIL_RUNOUT_PIN                   PG5
+#endif
+/*
+#ifndef FIL_RUNOUT_PIN
   #define FIL_RUNOUT_PIN                    PE15
 #endif
 #ifndef FIL_RUNOUT2_PIN
@@ -140,6 +144,7 @@
 #ifndef FIL_RUNOUT3_PIN
   #define FIL_RUNOUT3_PIN                   PG5
 #endif
+*/
 
 //
 // Steppers

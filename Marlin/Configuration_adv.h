@@ -2625,7 +2625,7 @@
    * M912 - Clear stepper driver overtemperature pre-warn condition flag.
    * M122 - Report driver parameters (Requires TMC_DEBUG)
    */
-  //#define MONITOR_DRIVER_STATUS
+  #define MONITOR_DRIVER_STATUS
 
   #if ENABLED(MONITOR_DRIVER_STATUS)
     #define CURRENT_STEP_DOWN     50  // [mA]
@@ -2646,22 +2646,22 @@
   #define X2_HYBRID_THRESHOLD    100
   #define Y_HYBRID_THRESHOLD     100
   #define Y2_HYBRID_THRESHOLD    100
-  #define Z_HYBRID_THRESHOLD       3
-  #define Z2_HYBRID_THRESHOLD      3
-  #define Z3_HYBRID_THRESHOLD      3
-  #define Z4_HYBRID_THRESHOLD      3
+  #define Z_HYBRID_THRESHOLD     100
+  #define Z2_HYBRID_THRESHOLD    100
+  #define Z3_HYBRID_THRESHOLD    100
+  #define Z4_HYBRID_THRESHOLD    100
   #if NON_E_AXES >= 4
-    #define I_HYBRID_THRESHOLD     3
+    #define I_HYBRID_THRESHOLD   100
     #if NON_E_AXES >= 5
-      #define J_HYBRID_THRESHOLD   3
+      #define J_HYBRID_THRESHOLD 100
       #if NON_E_AXES >= 6
-        #define K_HYBRID_THRESHOLD 3
+        #define K_HYBRID_THRESHOLD 100
       #endif
     #endif
   #endif
-  #define E0_HYBRID_THRESHOLD     30
-  #define E1_HYBRID_THRESHOLD     30
-  #define E2_HYBRID_THRESHOLD     30
+  #define E0_HYBRID_THRESHOLD     100
+  #define E1_HYBRID_THRESHOLD     100
+  #define E2_HYBRID_THRESHOLD     100
   #define E3_HYBRID_THRESHOLD     30
   #define E4_HYBRID_THRESHOLD     30
   #define E5_HYBRID_THRESHOLD     30
@@ -2705,7 +2705,7 @@
     //#define Z4_STALL_SENSITIVITY Z_STALL_SENSITIVITY
     #define I_STALL_SENSITIVITY  50
     #define J_STALL_SENSITIVITY  50
-    //#define K_STALL_SENSITIVITY  8
+    //#define K_STALL_SENSITIVITY  50
     //#define SPI_ENDSTOPS              // TMC2130 only
     //#define IMPROVE_HOMING_RELIABILITY
   #endif

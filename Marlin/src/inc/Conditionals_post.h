@@ -1757,6 +1757,15 @@
   #if defined(Z4_STALL_SENSITIVITY) && AXIS_HAS_STALLGUARD(Z4)
     #define Z4_SENSORLESS 1
   #endif
+    #if defined(I_STALL_SENSITIVITY)  && AXIS_HAS_STALLGUARD(I)
+    #define I_SENSORLESS 1
+  #endif
+    #if defined(J_STALL_SENSITIVITY)  && AXIS_HAS_STALLGUARD(J)
+    #define J_SENSORLESS 1
+  #endif
+    #if defined(K_STALL_SENSITIVITY)  && AXIS_HAS_STALLGUARD(K)
+    #define K_SENSORLESS 1
+  #endif
   #if ENABLED(SPI_ENDSTOPS)
     #define X_SPI_SENSORLESS X_SENSORLESS
     #define Y_SPI_SENSORLESS Y_SENSORLESS
