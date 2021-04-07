@@ -355,7 +355,7 @@ void test_tmc_connection(
 #if USE_SENSORLESS
 
   // Track enabled status of stealthChop and only re-enable where applicable
-  struct sensorless_t { bool LIST_N(NON_E_AXES, x, y, z, i, j, k), x2, y2, z2, z3, z4 };
+  struct sensorless_t { bool LIST_N(NON_E_AXES, x, y, z, i, j, k), x2, y2, z2, z3, z4; };
 
   #if ENABLED(IMPROVE_HOMING_RELIABILITY)
     extern millis_t sg_guard_period;

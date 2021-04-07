@@ -1167,11 +1167,19 @@
   #ifdef I_STOP_PIN
     #if I_HOME_DIR < 0
       #define I_MIN_PIN I_STOP_PIN
-      #define I_MAX_PIN -1
+      #ifndef I_MAX_PIN
+        #define I_MAX_PIN -1
+      #endif
     #else
-      #define I_MIN_PIN -1
+      #ifndef I_MIN_PIN
+        #define I_MIN_PIN -1
+      #endif
       #define I_MAX_PIN I_STOP_PIN
     #endif
+  #elif I_HOME_DIR < 0
+    #define I_STOP_PIN I_MIN_PIN
+  #else
+    #define I_STOP_PIN I_MAX_PIN
   #endif
 #else
   #undef I_MIN_PIN
@@ -1186,11 +1194,19 @@
   #ifdef J_STOP_PIN
     #if J_HOME_DIR < 0
       #define J_MIN_PIN J_STOP_PIN
-      #define J_MAX_PIN -1
+      #ifndef J_MAX_PIN
+        #define J_MAX_PIN -1
+      #endif
     #else
-      #define J_MIN_PIN -1
+      #ifndef J_MIN_PIN
+        #define J_MIN_PIN -1
+      #endif
       #define J_MAX_PIN J_STOP_PIN
     #endif
+  #elif J_HOME_DIR < 0
+    #define J_STOP_PIN J_MIN_PIN
+  #else
+    #define J_STOP_PIN J_MAX_PIN
   #endif
 #endif
 
@@ -1198,11 +1214,19 @@
   #ifdef K_STOP_PIN
     #if K_HOME_DIR < 0
       #define K_MIN_PIN K_STOP_PIN
-      #define K_MAX_PIN -1
+      #ifndef K_MAX_PIN
+        #define K_MAX_PIN -1
+      #endif
     #else
-      #define K_MIN_PIN -1
+      #ifndef K_MIN_PIN
+        #define K_MIN_PIN -1
+      #endif
       #define K_MAX_PIN K_STOP_PIN
     #endif
+  #elif K_HOME_DIR < 0
+    #define K_STOP_PIN K_MIN_PIN
+  #else
+    #define K_STOP_PIN K_MAX_PIN
   #endif
 #endif
 

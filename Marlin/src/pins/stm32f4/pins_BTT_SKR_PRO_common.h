@@ -48,10 +48,14 @@
 #define X_DIAG_PIN                          PB10  // X-
 #define Y_DIAG_PIN                          PE12  // Y-
 #define Z_DIAG_PIN                          PG8   // Z-
+#define I_DIAG_PIN                          PE15  // E0
+#define J_DIAG_PIN                          PE10  // E1
+#define E0_DIAG_PIN                         PG5   // E2
+/*
 #define E0_DIAG_PIN                         PE15  // E0
 #define E1_DIAG_PIN                         PE10  // E1
 #define E2_DIAG_PIN                         PG5   // E2
-
+*/
 //
 // Limit Switches
 //
@@ -95,26 +99,26 @@
 #ifdef I_STALL_SENSITIVITY
   #define I_STOP_PIN                  Z_DIAG_PIN
   #if I_HOME_DIR < 0
-    #define I_MAX_PIN                       PG5   // E2
+    #define I_MAX_PIN                       PB10   // X (idk)
   #else
-    #define I_MIN_PIN                       PG5   // E2
+    #define I_MIN_PIN                       PB10   // X (idk)
   #endif
 #else
-  #define I_MIN_PIN                         PG8   // Z-
-  #define I_MAX_PIN                         PG5   // E2
+  #define I_MIN_PIN                         PE15   // I-
+  #define I_MAX_PIN                         PB10   // X (idk)
 #endif
 
 //Values are wrong
 #ifdef J_STALL_SENSITIVITY
   #define J_STOP_PIN                  Z_DIAG_PIN
   #if J_HOME_DIR < 0
-    #define J_MAX_PIN                       PG5   // E2
+    #define J_MAX_PIN                       PE12   //  Y (idk)
   #else
-    #define J_MIN_PIN                       PG5   // E2
+    #define J_MIN_PIN                       PE12   // Y (idk)
   #endif
 #else
-  #define J_MIN_PIN                         PG8   // Z-
-  #define J_MAX_PIN                         PG5   // E2
+  #define J_MIN_PIN                         PE10   // J-
+  #define J_MAX_PIN                         PE12   // Y (idk)
 #endif
 
 //
