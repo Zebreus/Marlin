@@ -58,6 +58,10 @@
   #include "../libs/vector_3.h" // for matrix_3x3
 #endif
 
+#ifdef PUSH_PULL
+  #include "pushpull.h"
+#endif
+
 #if ENABLED(FWRETRACT)
   #include "../feature/fwretract.h"
 #endif

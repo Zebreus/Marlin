@@ -678,6 +678,10 @@
 //#define COREZX
 //#define COREZY
 
+// Uncomment for push/pull kinematics
+// More options in modules/pushpull.h
+#define PUSH_PULL
+
 //===========================================================================
 //============================== Endstop Settings ===========================
 //===========================================================================

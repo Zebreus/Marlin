@@ -2839,6 +2839,7 @@ bool Planner::buffer_segment(const float &a, const float &b, const float &c
 
   // The target position of the tool in absolute steps
   // Calculate target position in absolute steps
+  #ifndef PUSH_PULL
   const abce_long_t target = {
      LIST_N(NON_E_AXES,
       int32_t(LROUND(a * settings.axis_steps_per_mm[A_AXIS])),
@@ -2850,6 +2851,9 @@ bool Planner::buffer_segment(const float &a, const float &b, const float &c
     ),   
     int32_t(LROUND(e * settings.axis_steps_per_mm[E_AXIS_N(extruder)]))
   };
+  #else
+  const abce_long_t target = pushPull::convertToSteps(a,b,c,e,extruder);
+  #endif
 
   #if HAS_POSITION_FLOAT
     const xyze_pos_t target_float = { LIST_N(NON_E_AXES, a, b, c, i, j, k), e };
